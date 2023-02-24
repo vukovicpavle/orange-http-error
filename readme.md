@@ -10,7 +10,7 @@ npm install @vukovicpavle/orange-http-error
 
 ## Usage
 
-```javascript index.ts
+```javascript
 import express from "express";
 import {
   HttpError,
