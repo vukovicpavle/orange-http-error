@@ -1,73 +1,53 @@
-# 🍊 Template
+# 🍊 Http error
 
-This is a template for a new project.
-
-## How to use
-
-### Method 1
-
-1. Click on `Use this template` button
-
-### Method 2
-
-1. Clone this repository
-
-```bash
-git clone https://github.com/vukovicpavle/orange-template.git <project-name>
-```
-
-2. Install dependencies
-
-```bash
-npm install
-```
-
-3. Change name and description in `package.json`
-
-4. Update `readme.md`
-
-5. Change git remote
-
-```bash
-git remote set-url origin <new-repository-url>
-```
-
-6. Push to new repository
-
-```bash
-git push -u origin main
-```
-
-7. When ready, publish to npm
-
-```bash
-npm publish --access public
-```
+Http error middleware for express. It is used to handle errors and return them in a standardized format.
 
 ## Installation
 
 ```bash
-npm install @vukovicpavle/orange-template
+npm install @vukovicpavle/orange-http-error
 ```
 
 ## Usage
 
 ```javascript
-// Example
+// index.ts
+import express from "express";
+import {
+  HttpError,
+  httpErrorMiddleware,
+} from "@vukovicpavle/orange-http-error";
+
+// ...
+
+const app = express();
+
+// ...
+
+// This route will throw an error
+app.get("/", (req, res, next) => {
+  next(new HttpError(404, "Not found"));
+});
+
+// Error handler after all routes
+app.use(httpErrorMiddleware);
+
+// ...
 ```
 
 ## API
 
-### `functionName()`
+### `HttpError`
+
+Http error class. It is used to throw errors in the routes.
 
 #### Parameters
 
-| Name     | Type     | Description | Required | Default |
-| -------- | -------- | ----------- | -------- | ------- |
-| `param1` | `string` | Description | `false`  | `null`  |
+| Name      | Type     | Description      | Required | Default |
+| --------- | -------- | ---------------- | -------- | ------- |
+| `status`  | `number` | Http status code | `true`   |         |
+| `message` | `string` | Error message    | `true`   |         |
 
-#### Returns
+### `httpErrorMiddleware`
 
-| Type     | Description |
-| -------- | ----------- |
-| `string` | Description |
+Http error middleware. It is used to handle errors and return them in a standardized format.
