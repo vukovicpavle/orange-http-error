@@ -1,8 +1,9 @@
 {
   "name": "@vukovicpavle/orange-http-error",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "🍊 Http error middleware for express",
   "main": "dist/index.js",
+  "types": "src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npx tsc",
