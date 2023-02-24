@@ -1,6 +1,6 @@
 {
   "name": "@vukovicpavle/orange-http-error",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "🍊 Http error middleware for express",
   "main": "dist/index.js",
   "types": "src/index.d.ts",
