@@ -1,13 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 
-type HttpError = {
+export class HttpError extends Error {
   status: number;
-  message: string;
-};
+}
 
-type httpErrorMiddleware = (
+export function httpErrorMiddleware(
   err: HttpError,
   req: Request,
   res: Response,
   next: NextFunction
-) => void;
+): void;
